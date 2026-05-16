@@ -1,0 +1,607 @@
+:root {
+  --navy: #002d9c;
+  --lime: #befd00;
+  --white: #ffffff;
+  --green-nu: #006b3c;
+  --dark-glass: rgba(0, 45, 156, 0.85);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+  position: relative;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 9 / 16;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.page-wrapper {
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* ==========================================================================
+   GAYA TOMBOL MUSIK FLOATING
+   ========================================================================== */
+.music-btn {
+  position: fixed;
+  top: 25px;
+  right: calc(50% - 230px);
+  z-index: 999;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(0, 45, 156, 0.85);
+  border: 1px solid var(--lime);
+  color: var(--lime);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  transition: transform 0.2s;
+}
+
+@media (max-width: 520px) {
+  .music-btn {
+    right: 20px;
+  }
+}
+
+.music-btn:active {
+  transform: scale(0.9);
+}
+.hidden-btn {
+  display: none !important;
+}
+
+.fa-spin {
+  animation: spin 3s linear infinite;
+}
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================================================
+   BACKGROUND FILE DESAIN PER HALAMAN
+   ========================================================================== */
+.bg-cover-1 {
+  background-image: url("../assets/images/bg-1.jpg");
+}
+.bg-cover-2 {
+  background-image: url("../assets/images/bg-2.jpg");
+}
+.bg-cover-3 {
+  background-image: url("../assets/images/bg-3.jpg");
+}
+.bg-cover-4 {
+  background-image: url("../assets/images/bg-4.jpg");
+}
+.bg-cover-5 {
+  background-image: url("../assets/images/bg-5.jpg");
+}
+.bg-cover-6 {
+  background-image: url("../assets/images/bg-5.jpg");
+}
+
+/* Pastikan halaman 3 (slider) tidak terpotong dan bisa discroll/geser */
+#page-3 {
+  overflow: hidden;
+}
+#page-3 .slider-container {
+  min-height: 0;
+}
+
+.hidden {
+  transform: translateY(100%);
+}
+
+/* ==========================================================================
+   KONTROL ANIMASI VIA TRANSISI JAVASCRIPT
+   ========================================================================== */
+#page-2.show-up,
+#page-3.show-up,
+#page-4.show-up,
+#page-5.show-up,
+#page-6.show-up {
+  transform: translateY(0%);
+}
+
+#page-1.hide-up,
+#page-2.hide-up,
+#page-3.hide-up,
+#page-4.hide-up,
+#page-5.hide-up {
+  transform: translateY(-100%);
+}
+
+/* ==========================================================================
+   GAYA AREA TAMU (PAGE 1)
+   ========================================================================== */
+.guest-box {
+  background: linear-gradient(transparent, var(--navy));
+  padding: 20px 20px 60px;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.guest-box > p {
+  margin: 0 0 6px;
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+#nama-tamu {
+  color: var(--lime);
+  margin: 6px 0 14px;
+  font-size: 1.6rem;
+}
+
+.btn-primary {
+  background: var(--lime);
+  color: var(--navy);
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(190, 253, 0, 0.3);
+}
+
+/* ==========================================================================
+   OVERLAY UTAMA KONTEN (PAGE 2 s/d 6)
+   ========================================================================== */
+.timer-overlay,
+.slider-overlay,
+.maps-overlay,
+.donation-overlay,
+.rsvp-overlay {
+  width: 100%;
+  padding: 0 20px 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Rapatkan slider halaman 3 supaya dekat tombol kembali & lokasi */
+#page-3 .slider-overlay {
+  padding-bottom: 22px;
+}
+
+#page-3 .page-nav-group {
+  margin-top: -2px;
+}
+
+.page-nav-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  width: 100%;
+}
+
+/* ==========================================================================
+   GAYA TIMER HITUNG MUNDUR (PAGE 2)
+   ========================================================================== */
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.time-unit {
+  background: rgba(0, 45, 156, 0.8);
+  border: 1px solid var(--lime);
+  padding: 10px;
+  border-radius: 8px;
+  min-width: 65px;
+}
+
+.time-unit span {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--lime);
+}
+
+.time-unit p {
+  font-size: 0.6rem;
+  color: white;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   GAYA SLIDER SWIPE HORIZONTAL (PAGE 3)
+   ========================================================================== */
+.slider-container {
+  width: 100%;
+  padding: 0 10px;
+}
+
+/* Pastikan slider bisa discroll/di-geser bahkan jika tinggi halaman dibatasi */
+.slider-track {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  gap: 12px;
+  padding-bottom: 5px;
+  flex-wrap: nowrap;
+}
+
+.slider-track::-webkit-scrollbar {
+  display: none;
+}
+
+.slide-item {
+  /* dibuat lebih kecil supaya 6 kolom/slide muat di layar */
+  flex: 0 0 45%;
+  scroll-snap-align: center;
+  border: 2px solid var(--lime);
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.slide-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   GAYA FRAME GOOGLE MAPS (PAGE 4)
+   ========================================================================== */
+.maps-container {
+  width: 100%;
+  background: rgba(0, 45, 156, 0.85);
+  border: 1px solid var(--lime);
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+
+  /* bantu agar iframe berada lebih "bawah" setelah judul/venue */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.maps-title {
+  color: var(--lime);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.maps-venue {
+  color: white;
+  font-size: 0.8rem;
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+
+.map-box {
+  /* map-box dibuat kecil & tidak menimpa background */
+  width: 100%;
+  height: 100px;
+
+  border-radius: 8px;
+  overflow: hidden;
+
+  /* kurangi jarak biar tidak "melompat" */
+  margin-top: 8px;
+  margin-bottom: 8px;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  flex: 0 0 auto;
+}
+
+.map-box iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.btn-block-link {
+  display: inline-block;
+  width: 100%;
+  text-decoration: none;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   GAYA BLOK REKENING SUPPORT (PAGE 5)
+   ========================================================================== */
+.donation-container {
+  width: 100%;
+  background: rgba(0, 40, 20, 0.9);
+  border: 1px solid var(--lime);
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  color: white;
+}
+
+.donation-title {
+  color: var(--lime);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.donation-subtitle {
+  font-size: 0.72rem;
+  margin-bottom: 14px;
+  opacity: 0.85;
+  line-height: 1.4;
+}
+
+.bank-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.bank-card:last-of-type {
+  margin-bottom: 0;
+}
+
+.bank-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.badge-tag {
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.6rem;
+  font-weight: 800;
+}
+.badge-tag.ipnu {
+  background: var(--navy);
+}
+.badge-tag.ippnu {
+  background: #007a3d;
+}
+
+.bank-name {
+  font-size: 0.95rem;
+  color: white;
+}
+
+.account-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 1.1rem;
+  color: var(--lime);
+  font-weight: 700;
+}
+
+.btn-copy {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+.btn-copy:hover {
+  color: var(--lime);
+}
+
+.holder-name {
+  font-size: 0.7rem;
+  margin-top: 4px;
+  opacity: 0.8;
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   GAYA INTERAKTIF FORM RSVP & WALL PESAN (PAGE 6)
+   ========================================================================== */
+.rsvp-container {
+  width: 100%;
+  background: var(--dark-glass);
+  border: 1px solid var(--lime);
+  border-radius: 14px;
+  padding: 20px 15px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.rsvp-title {
+  color: var(--lime);
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input-field {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.85rem;
+  outline: none;
+  transition: 0.2s;
+}
+
+.input-field::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+.input-field:focus {
+  border-color: var(--lime);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.select-field {
+  color: white;
+  cursor: pointer;
+}
+.select-field option {
+  background: var(--navy);
+  color: white;
+}
+
+.textarea-field {
+  resize: none;
+}
+
+.btn-submit {
+  background: var(--lime);
+  color: var(--navy);
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.btn-submit:active {
+  transform: scale(0.98);
+}
+
+.wishes-wall {
+  width: 100%;
+  max-height: 140px;
+  overflow-y: auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-right: 5px;
+}
+
+.wishes-wall::-webkit-scrollbar {
+  width: 4px;
+}
+.wishes-wall::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.wish-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-left: 3px solid var(--lime);
+  padding: 8px 12px;
+  border-radius: 0 6px 6px 0;
+}
+
+.wish-card strong {
+  font-size: 0.8rem;
+  color: var(--white);
+}
+.wish-card p {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 3px;
+  line-height: 1.3;
+}
+
+.status-badge {
+  font-size: 0.6rem;
+  padding: 1px 6px;
+  border-radius: 4px;
+  float: right;
+  font-weight: 700;
+}
+.status-badge.hadir {
+  background: rgba(190, 253, 0, 0.2);
+  color: var(--lime);
+}
+.status-badge.tidak-hadir {
+  background: rgba(255, 0, 0, 0.2);
+  color: #ff6b6b;
+}
+
+/* ==========================================================================
+   TOMBOL NAVIGASI GLOBAL (NEXT/BACK)
+   ========================================================================== */
+.btn-navigation {
+  background: rgba(0, 45, 156, 0.8);
+  color: white;
+  border: 1px solid var(--lime);
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-navigation:active {
+  transform: scale(0.95);
+}
+.btn-navigation i {
+  margin: 0 5px;
+}
+.btn-back {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}

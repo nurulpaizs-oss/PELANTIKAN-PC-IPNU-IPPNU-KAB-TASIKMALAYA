@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Undangan Pelantikan PC IPNU IPPNU Kab. Tasikmalaya</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <audio id="bg-music" src="assets/music/music.mp3" loop></audio>
+
+    <button id="music-toggle" class="music-btn hidden-btn">
+      <i class="fas fa-disc fa-spin"></i>
+    </button>
+
+    <div class="app-container">
+      <section id="page-1" class="page-wrapper bg-cover-1">
+        <div class="guest-box">
+          <p>Kepada Yth. Rekan/Rekanita:</p>
+          <h2 id="nama-tamu">Tamu Undangan</h2>
+          <button id="btn-open" class="btn-primary">
+            <i class="fas fa-envelope-open-text"></i> BUKA UNDANGAN
+          </button>
+        </div>
+      </section>
+
+      <section id="page-2" class="page-wrapper bg-cover-2 hidden">
+        <div class="timer-overlay">
+          <div id="countdown" class="countdown-container">
+            <div class="time-unit">
+              <span id="days">00</span>
+              <p>Hari</p>
+            </div>
+            <div class="time-unit">
+              <span id="hours">00</span>
+              <p>Jam</p>
+            </div>
+            <div class="time-unit">
+              <span id="minutes">00</span>
+              <p>Menit</p>
+            </div>
+            <div class="time-unit">
+              <span id="seconds">00</span>
+              <p>Detik</p>
+            </div>
+          </div>
+
+          <button id="btn-to-page3" class="btn-navigation">
+            LIHAT KEGIATAN <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </section>
+
+      <section id="page-3" class="page-wrapper bg-cover-3 hidden">
+        <div class="slider-overlay">
+          <div class="slider-container">
+            <div class="slider-track">
+              <div class="slide-item">
+                <img src="assets/images/kegiatan1.jpg" alt="Kegiatan 1" />
+              </div>
+              <div class="slide-item">
+                <img src="assets/images/kegiatan2.jpg" alt="Kegiatan 2" />
+              </div>
+              <div class="slide-item">
+                <img src="assets/images/kegiatan3.jpg" alt="Kegiatan 3" />
+              </div>
+              <div class="slide-item">
+                <img src="assets/images/kegiatan4.jpeg" alt="Kegiatan 4" />
+              </div>
+              <div class="slide-item">
+                <img src="assets/images/kegiatan5.jpeg" alt="Kegiatan 5" />
+              </div>
+              <div class="slide-item">
+                <img src="assets/images/kegiatan6.jpeg" alt="Kegiatan 6" />
+              </div>
+            </div>
+          </div>
+
+          <div class="page-nav-group">
+            <button id="btn-back-to-page2" class="btn-navigation btn-back">
+              <i class="fas fa-chevron-left"></i> KEMBALI
+            </button>
+            <button id="btn-to-page4" class="btn-navigation">
+              LOKASI <i class="fas fa-map-marker-alt"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="page-4" class="page-wrapper bg-cover-4 hidden">
+        <div class="maps-overlay">
+          <div class="maps-container">
+            <h3 class="maps-title">
+              <i class="fas fa-map-marked-alt"></i> LOKASI ACARA
+            </h3>
+            <p class="maps-venue">SMK AL-FALAH TANJUNG JAYA</p>
+
+            <div class="map-box">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7913.4049011376455!2d108.14079326918645!3d-7.387202459278816!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f560629873baf%3A0x25448b2b10862ad2!2sSMK%20AL%20Falah%20Tanjungjaya%2FMTs%20Al%20Falah%20Tanjungjaya%20Boarding%20School!5e0!3m2!1sid!2sid!4v1778931289065!5m2!1sid!2sid"
+                width="600"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                width="100%"
+                height="100%"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              >
+              </iframe>
+            </div>
+
+            <a
+              href="https://maps.app.goo.gl/qoobrq8rPZ9WJv9m9"
+              target="_blank"
+              class="btn-primary btn-block-link"
+            >
+              <i class="fas fa-location-arrow"></i> BUKA DI GOOGLE MAPS
+            </a>
+          </div>
+
+          <div class="page-nav-group">
+            <button id="btn-back-to-page3" class="btn-navigation btn-back">
+              <i class="fas fa-chevron-left"></i> KEMBALI
+            </button>
+            <button id="btn-to-page5" class="btn-navigation">
+              SUPPORT <i class="fas fa-heart"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="page-5" class="page-wrapper bg-cover-5 hidden">
+        <div class="donation-overlay">
+          <div class="donation-container">
+            <h3 class="donation-title">
+              <i class="fas fa-hand-holding-heart"></i> SUPPORT & DONASI
+            </h3>
+            <p class="donation-subtitle">
+              Dukungan materiil demi kelancaran agenda Pelantikan Pengurus PC
+              IPNU IPPNU Kabupaten Tasikmalaya:
+            </p>
+
+            <div class="bank-card">
+              <div class="bank-meta">
+                <span class="badge-tag ipnu">REKAN (IPNU)</span>
+                <strong class="bank-name">BRI</strong>
+              </div>
+              <div class="account-box">
+                <span id="rek-ipnu">436101033563530</span>
+                <button
+                  class="btn-copy"
+                  onclick="
+                    navigator.clipboard.writeText('436101033563530');
+                    alert('Nomor Rekening BRI IPNU berhasil disalin!');
+                  "
+                >
+                  <i class="far fa-copy"></i>
+                </button>
+              </div>
+              <p class="holder-name">a.n. PC IPNU KAB TASIKMALAYA</p>
+            </div>
+
+            <div class="bank-card">
+              <div class="bank-meta">
+                <span class="badge-tag ippnu">REKANITA (IPPNU)</span>
+                <strong class="bank-name">Bank BJB</strong>
+              </div>
+              <div class="account-box">
+                <span id="rek-ippnu"> 0018302927100</span>
+                <button
+                  class="btn-copy"
+                  onclick="
+                    navigator.clipboard.writeText(' 0018302927100');
+                    alert('Nomor Rekening Bank BJB IPPNU berhasil disalin!');
+                  "
+                >
+                  <i class="far fa-copy"></i>
+                </button>
+              </div>
+              <p class="holder-name">a.n IKATAN PELAJAR PUTRI NU KAB TSK</p>
+            </div>
+          </div>
+
+          <div class="page-nav-group">
+            <button id="btn-back-to-page4" class="btn-navigation btn-back">
+              <i class="fas fa-chevron-left"></i> KEMBALI
+            </button>
+            <button id="btn-to-page6" class="btn-navigation">
+              UCAPAN <i class="fas fa-comments"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="page-6" class="page-wrapper bg-cover-6 hidden">
+        <div class="rsvp-overlay">
+          <div class="rsvp-container">
+            <h3 class="rsvp-title">
+              <i class="fas fa-user-check"></i> KONFIRMASI KEHADIRAN
+            </h3>
+            <form id="rsvp-form" class="rsvp-form">
+              <input
+                type="text"
+                id="form-name"
+                placeholder="Nama Lengkap Anda"
+                required
+                class="input-field"
+              />
+              <select
+                id="form-status"
+                required
+                class="input-field select-field"
+              >
+                <option value="" disabled selected>
+                  Apakah Anda akan hadir?
+                </option>
+                <option value="Hadir">👍 Rekan/Rekanita Akan Hadir</option>
+                <option value="Tidak Hadir">
+                  🙏 Mohon Maaf, Berhalangan Hadir
+                </option>
+              </select>
+              <textarea
+                id="form-message"
+                rows="3"
+                placeholder="Tulis ucapan selamat atau pesan untuk pengurus baru..."
+                required
+                class="input-field textarea-field"
+              ></textarea>
+              <button type="submit" class="btn-submit">
+                KIRIM UCAPAN <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+
+            <h3 class="rsvp-title" style="margin-top: 8px">
+              <i class="fas fa-comments"></i> UCAPAN DARI TAMU
+            </h3>
+            <div id="wishes-wall" class="wishes-wall"></div>
+          </div>
+
+          <button id="btn-back-to-page5" class="btn-navigation btn-back">
+            <i class="fas fa-chevron-left"></i> KEMBALI
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <!-- Firebase v8 (sesuai script.js yang pakai firebase.initializeApp + firebase.database()) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+    <!-- Guard supaya kalau Firebase tidak bisa load, aplikasi tetap jalan -->
+    <script>
+      if (typeof firebase === "undefined") {
+        console.error(
+          "Firebase SDK tidak ter-load. Pastikan koneksi internet & tag Firebase di index.html benar.",
+        );
+      }
+    </script>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
